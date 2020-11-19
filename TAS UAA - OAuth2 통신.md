@@ -76,11 +76,6 @@ https://{SSO_LOGIN_DOMAIN}/userinfo
 		- Access Token은 43200s(12시간)의 만료 시간을 갖고 있습니다. 만약 이 Token을 Refresh해주지 않으면 "Expired Token" 만료된 Token이라는 에러 메세지가 출력 됩니다.
 
 
-### 2.4. Common
-- 공통 사항으로 모든 OAuth2 Endpoint에는 사용자 설정 Header를 포함 할 수 없습니다.
-- OAuth POST Endpoint 특징 상 Front App에서 사용 될 경우 기본 axios(ajax) 통신으로는 CORS 403 Error 발생하여 별도의 Security 방식이 추가 된 axios-oauth-client "import oauth from 'axios-oauth-client';" 모듈을 사용해야 합니다.
-- 모든 OAuth2 Endpoint 간의 
-
 ## 3. 간단한 CURL을 통한 기능 검증 방법
 
 - 현재 일부의 Endpoint 기능 검증은 CA 쪽에서 자동으로 Redirect를 강제적으로 Login 페이지로 보내 현재는 확인이 불가능 합니다.
