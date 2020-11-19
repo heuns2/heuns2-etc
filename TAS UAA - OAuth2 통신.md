@@ -23,7 +23,7 @@
 	5) Logout
 		    - Logout 시 설정한 Redirect 페이지로 이동 합니다, 설정하지 않으면 자동으로 Login Page로 이동됩니다.
 
-![sso-ac](./images/sso-ac.PNG)
+![sso-ac](./images/sso.PNG)
 
 
 ## 2. 운영 간 특이 사항
@@ -119,4 +119,6 @@ https://www.naver.com/?code=YdEtPbMcD8
  -H "Authorization: Bearer $ACCESS_TOKEN" \
  "https://sso.login.{DOMAIN}/userinfo"
 ```
+
+
 
