@@ -1,3 +1,4 @@
+
 ```
 #!/bin/bash
 
@@ -12,12 +13,12 @@ chmod +x ./jq ./cf
 admin_id=$(om --env ./env/$ENV_FILE credentials --product-name cf --credential-reference .uaa.admin_credentials -t json | ./jq .identity | tr -d '"')
 admin_pwd=$(om --env ./env/$ENV_FILE credentials --product-name cf --credential-reference .uaa.admin_credentials -t json | ./jq .password | tr -d '"')
 
-./cf login -a https://api.sys.$FOUNDATION.posco.co.kr -u $admin_id -p $admin_pwd -o $FOUNDATION -s common --skip-ssl-validation
+./cf login -a https://api.sys.{DOMA} -u $admin_id -p $admin_pwd -o $FOUNDATION -s common --skip-ssl-validation
 
 
 function vm_status_check(){
   if [[ $1 -eq 100 ]]; then
-    curl -G "https://log-cache.sys.$FOUNDATION.posco.co.kr/api/v1/query" --data-urlencode 'query=system_healthy{source_id="bosh-system-metrics-forwarder"} == 0' \
+    curl -G "https://log-cache.sys.{DOMAIN}/api/v1/query" --data-urlencode 'query=system_healthy{source_id="bosh-system-metrics-forwarder"} == 0' \
     -H "Authorization: $(./cf oauth-token)" | \
     ./jq '[ .data.result[] | {
     deployment_name:.metric.deployment,
@@ -32,7 +33,7 @@ function vm_status_check(){
   if [[ $1 -eq 200 ]]; then
     cp vm_staus_check.json vm_staus_check_old.json
     sleep 5;
-    curl -G "https://log-cache.sys.$FOUNDATION.posco.co.kr/api/v1/query" --data-urlencode 'query=system_healthy{source_id="bosh-system-metrics-forwarder"} == 0' \
+    curl -G "https://log-cache.sys.{DOMAIN}/api/v1/query" --data-urlencode 'query=system_healthy{source_id="bosh-system-metrics-forwarder"} == 0' \
     -H "Authorization: $(./cf oauth-token)" | \
     ./jq '[ .data.result[] | {
     deployment_name:.metric.deployment,
@@ -73,13 +74,6 @@ function vm_status_result(){
       job_name=$(cat vm_staus_check.json | ./jq .[$i].job_name | tr -d '"')
       index_name=$(cat vm_staus_check.json | ./jq .[$i].index | tr -d '"')
       
-      if [[ $deployment_name != "bosh-health-check" ]]; then
-          echo $FOUNDATION $job_name/$index_name "VM DOWN"
-      fi
-      if [ $1 -eq  1 ] && [ $deployment_name == 'bosh-health-check' ]; then
-        echo "VM Status All Done"
-        exit 0
-      fi
     done
     if [ $1 -eq  0 ]; then
       echo "VM Status All Done"
