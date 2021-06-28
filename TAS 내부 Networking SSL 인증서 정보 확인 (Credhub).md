@@ -42,6 +42,8 @@ $ openssl x509 -noout -text -in uaassl.crt
 $ openssl x509 -noout -text -in networkssl.crt  
 $ openssl x509 -noout -text -in isgnetworkssl.crt  
 
+- 위 openssl 명령 결과 발급 기관과 Alternative DNS 정보를 확인 합니다.
+
 ![ex_screenshot](./images/credhub-2.PNG)
 
 ![ex_screenshot](./images/credhub-3.PNG)
