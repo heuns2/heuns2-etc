@@ -20,3 +20,29 @@ Login Successful
 ```
 
 -  위 인증정보는 bosh tile의 director credential을 사용하였습니다.
+
+![ex_screenshot](./images/credhub-1.PNG)
+
+### 1.2. Credhub 명령을 통하여 인증서 파일 Get
+
+```
+$ credhub find | grep ssl  
+- name: /opsmgr/p-isolation-segment-b0b23a14da895c67977e/networking_poe_ssl_certs/0/certificate **## 1대의 ISG 영역 Networking Config 인증서 KB의 경우 ISG가 여러대가 존재 할 것입니다.**  
+- name: /opsmgr/cf-cf6ad23a7cf45ce81140/uaa/ssl_credentials  **## TAS 영역의 UAA Config 인증서**  
+- name: /opsmgr/cf-cf6ad23a7cf45ce81140/networking_poe_ssl_certs/0/certificat **## TAS 영역의 Networking Config 인증서**  
+
+$ printf -- "$(credhub get -n /opsmgr/cf-cf6ad23a7cf45ce81140/uaa/ssl_credentials -j | jq .value.cert_pem)" | tr -d '"' > uaassl.crt
+$ printf -- "$(credhub get -n /opsmgr/cf-cf6ad23a7cf45ce81140/networking_poe_ssl_certs/0/certificate -j | jq .value.cert_pem)" | tr -d '"' > networkssl.crt
+$ printf -- "$(credhub get -n /opsmgr/p-isolation-segment-b0b23a14da895c67977e/networking_poe_ssl_certs/0/certificate -j | jq .value.cert_pem)" | tr -d '"' > isgnetworkssl.crt  
+```
+
+### 1.3. Openssl 명령을 통하여 인증서 파일 정보를 확인
+
+$ openssl x509 -noout -text -in uaassl.crt  
+$ openssl x509 -noout -text -in networkssl.crt  
+$ openssl x509 -noout -text -in isgnetworkssl.crt  
+
+![ex_screenshot](./images/credhub-2.PNG)
+
+![ex_screenshot](./images/credhub-3.PNG)
+
