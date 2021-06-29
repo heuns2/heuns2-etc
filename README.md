@@ -28,5 +28,6 @@
   - vSphere 물리 장비(Hardware)의 Spec 추출
   - 인프라 전체 TAS VM Stop 시 수동 원복 방법
   - TAS Tile Notifications - SMTP 연동 가이드
+  - TAS 내부 Networking SSL 인증서 정보 확인 (Credhub)
 
 
