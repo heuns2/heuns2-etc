@@ -1,0 +1,14 @@
+
+cf create-isolation-segment leedh-is
+cf create-org isg-test
+cf create-domain isg-test apps.isg-leedh.cloud
+cf enable-org-isolation isg-test leedh-is
+cf set-org-default-isolation-segment isg-test leedh-is
+cf isolation-segments
+cf domains
+cf orgs
+
+cf t -o isg-test
+cf create-space test
+
+cf create-shared-domain apps.isg-leedh.cloud 
