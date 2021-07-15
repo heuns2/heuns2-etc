@@ -2,6 +2,7 @@
 
 - Tanzu Isolation Segment는 Tanzu Application Service와는 별개로 Network, Container Runtime을 분리 할 수 있습니다, 특히 Network 분리를 통하여 몸통과는 전혀 다른 Network 규칙을 생성 할 수 있으며 Traffic을 컨트롤 할 수 있습니다.
 - Tanzu Application Service의 BBS, UAA, Database, NFS Server는 함께 사용 됩니다.
+- 사전 준비 사항으로 IaaS에 Isolation Segment 영역의 Load Balancer가 필요 할 수 있습니다.
 
 ## 1. Tanzu Isolation Segment 설치 진행 시 특이 사항
 
