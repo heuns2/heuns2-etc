@@ -8,11 +8,13 @@
 - Go Router를 분리하고, 별도의 Apps Domain을 사용하기 위해서는 아래의 설정에서 해당 Apps Domain으로 인증서를 생성해야 합니다.
 
 ![isg-1][isg-1]
+
 [isg-1]:./images/isg-image-1.PNG
 
 - Diego Cell을 분리하기 위해서는 아래의 설정이 필요하며, 아래 설정을 통하여 Tile 설치 완료 후 
 
 ![isg-2][isg-2]
+
 [isg-2]:./images/isg-image-2.PNG
 
 
