@@ -22,7 +22,7 @@ $ wget https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/release
 $ chmod +x bbr-1.5.*
 
 $ mv bbr-1.5.* /usr/local/bin/
-```
+``` 
 
 ## 2.  Back Director
 - Backup 전제조건
