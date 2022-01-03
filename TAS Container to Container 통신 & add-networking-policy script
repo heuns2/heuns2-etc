@@ -7,7 +7,7 @@
 - Internal Domain을 사용하는 Isolation Segment  경우 networking-policy을 걸어줘야 할 가능성이 있습니다.
 - 내부적으로 App이 실행하는 Container의 IP example) 10.x.x.x에서 destination 대상에 대한 port forwarding, iptable, route table을 설정하는 것 같습니다.
 
-- 참고 URL
+- 참고 URL  
 	- [https://github.com/cloudfoundry/cf-networking-examples/blob/master/docs/c2c-no-service-discovery.md](https://github.com/cloudfoundry/cf-networking-examples/blob/master/docs/c2c-no-service-discovery.md)
 	- [https://docs.pivotal.io/platform/application-service/2-7/concepts/understand-cf-networking.html](https://docs.pivotal.io/platform/application-service/2-7/concepts/understand-cf-networking.html)
 
