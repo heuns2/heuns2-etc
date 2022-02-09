@@ -39,7 +39,7 @@ Private Docker Repo에 Image가 정상적으로 올라갔으면 해당 Image의 
 $ $ CF_DOCKER_PASSWORD=YOUR-PASSWORD cf push APP-NAME --docker-image REPO/IMAGE:TAG --docker-username USER
 
 # CF_DOCKER_PASSWORD는 별도의 cf push cli의 option이 없어 앞에 환경변수 형태로 사용한다.
-# CF_DOCKER_PASSWORD를 지정하지 않으면 harbor에 대한 권한 에러가 발생한다.
+# CF_DOCKER_PASSWORD를 지정하지 않으면 harbor에 대한 권한 에러가 발생한다.  
 ```
 ## 3. Docker & PAS
 ```
