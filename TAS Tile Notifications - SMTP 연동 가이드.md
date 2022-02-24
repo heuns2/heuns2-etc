@@ -11,7 +11,7 @@
 
 ## 1. TAS  설정 및 Apply Change 실행
 
-### 1.1. TAS Notifications 설정 
+### 1.1. TAS Notifications 설정   
 - Ops Manager UI -> TAS Tile -> Email Notifications 설정
 
 ![Notifications-1](./images/Notifications-1.PNG)
