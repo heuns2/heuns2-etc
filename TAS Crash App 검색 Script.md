@@ -19,7 +19,7 @@ BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=rVdOTQvmXYzd3UgtI0fYsWiwZ-j3N3aj BOSH
             get_space_guid=$(cf curl $get_space_url | jq .metadata.guid | tr -d '"')
             get_org_url=$(cf curl /v2/spaces/$get_space_guid | jq .entity.organization_url | tr -d '"')
             crash_app_space=$(cf curl $get_space_url | jq .entity.name | tr -d '"')
-            crash_app_org=$(cf curl $get_org_url | jq .entity.name | tr -d '"')
+            crash_app_org=$(cf curl $get_org_url | jq .entity.name | tr -d '"')  
 
             echo "APP NAME: $crash_app_name ORG: $crash_app_org SPACE: $crash_app_space"
           fi
