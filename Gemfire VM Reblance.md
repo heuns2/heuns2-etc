@@ -9,7 +9,7 @@
 - persistence disk 사용 시 cache-server 별 disk usage가 불균형일 경우 (특정 region의 data가 특정 server에만 쌓였는지 확인이 필요)
 
 1) rebalance --simulate를 통해 reblance가 필요 한지 확인
-2) rebalance --region을 통해 필요한 region 재조정
+2) rebalance --region을 통해 필요한 region 재조정  
 
 ## 특이 사항
 - 실제 data가 저장되는 Bucket이 이동함에 따라 차단 될 확률이 있으며 Thread가 Disconnect 될 수 있습니다. 그로인해 부하가 낮거나 사용이 적은 시간에 Reblance를 실행 하여야 합니다.
